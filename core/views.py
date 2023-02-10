@@ -1,9 +1,12 @@
 from django.shortcuts import render
 
+from .models import Car
+
+
 def index(request):
-    template_name = ''
-    carros = Carro.objects.all()
+    template_name = 'car/index.html'
+    cars = Car.objects.all()
     context = {
-        'carros': carros
+        'cars': cars
     }
-    render(request, template_name, context)
+    return render(request, template_name, context)
