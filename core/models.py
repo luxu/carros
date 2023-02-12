@@ -9,7 +9,7 @@ class Car(models.Model):
         (MA, 'Manual')
     ]
     name = models.CharField(
-        'Nome',
+        verbose_name='Nome',
         max_length=50
     )
     price = models.DecimalField(
@@ -34,12 +34,13 @@ class Car(models.Model):
     )
 
     def __str__(self):
-        return f'{self.name} - {self.model}'
+        return f'{self.name} - {self.manufacturer}'
 
     class Meta:
         verbose_name = 'Carro'
         verbose_name_plural = 'Carros'
         ordering = ['name']
+
 
 class Manufacturer(models.Model):
     name = models.CharField(
@@ -71,6 +72,7 @@ class City(models.Model):
     class Meta:
         verbose_name = 'Cidade'
         verbose_name_plural = 'Cidades'
+
 
 class State(models.Model):
     SP = 'sp'
